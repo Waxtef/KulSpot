@@ -2,12 +2,13 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import {useNavigate} from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
-import shareVideo from "../assets/background.pm4";
+import shareVideo from "../assets/background.mp4";
 import logo from "../assets/logowhite.png";
 
 const Login = () => {
 
   const responseGoogle = (response) =>{
+    console.log(response);
 
   }
   return (
@@ -16,26 +17,27 @@ const Login = () => {
         <video 
         src={shareVideo}
         type="video/mp4"
-        Loop
+        loop
         controls={false}
+        muted
         autoPlay
-        className='w-full -h-full object-cover'
+        className='w-full h-full object-cover'
         />
         <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
           <div className="p-5">
-            <img src="{logo}"  width="130px" alt="logo" />
+            <img src={logo}  width="130px" alt="logo" />
           </div>
           <div className="shadow-2xl">
             <GoogleLogin
-            clientId=''
+            clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
             render={(renderProps) =>(
               <button
               type ="button"
-              className="bg-mainColor flex justify-center items-center p-3 cursos-pointer outline-none"
+              className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
               onClick={renderProps.onClick}
               disabled={renderProps.disabled}
               >
-              <FcGoogle className="mr-4"/>
+              <FcGoogle className="mr-4"/> Sing In with Google
               </button>
             )}
             onSuccess={responseGoogle}
