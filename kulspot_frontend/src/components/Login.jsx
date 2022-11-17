@@ -32,21 +32,7 @@ const Login = () => {
             <img src={logo}  width="130px" alt="logo" />
           </div>
           <div className="shadow-2xl">
-            <GoogleOAuthProvider clientId={'102786821286-87ufcp8smccc15etg9pbg0rmdtlllviv.apps.googleusercontent.com'}
-            render={(renderProps) =>(
-              <button
-              type ="button"
-              className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-              >
-              <FcGoogle className="mr-4"/> Sing In with Google
-              </button>
-            )}
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy ="single_host_origin"
-            />
+           
             <GoogleLogin
               clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
               render={(renderProps) => (
